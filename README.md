@@ -1,14 +1,15 @@
-# Surface Pro 7 Linux 7.1.2 Touch Kernel
+# Surface Pro 7 Linux 7.1.2 Touch + AppArmor Kernel
 
 Prebuilt Ubuntu kernel packages for a Microsoft Surface Pro 7.
 
 This build uses the official upstream Linux 7.1.2 source with the linux-surface
 community touch/platform patches forward-ported for Surface Pro 7 touch and
-stylus support.
+stylus support. It also includes Ubuntu's AppArmor notification support so Snap
+AppArmor prompting can run on this custom kernel.
 
 ## What Is Included
 
-- Linux kernel `7.1.2-surface+`
+- Linux kernel `7.1.2-surface-aa+`
 - Surface touch modules:
   - `ipts`
   - `ithc`
@@ -16,6 +17,7 @@ stylus support.
   - `surface_gpe`
   - `surface_aggregator`
 - `iptsd` install helper through the linux-surface package repository
+- AppArmor notification support for Snap prompting
 - Apt guardrail to avoid accidentally installing the older packaged
   `linux-image-surface` kernel
 
@@ -49,7 +51,7 @@ journalctl -k -b | grep -Ei 'ipts|ithc|surface|mei|hid'
 Expected kernel:
 
 ```text
-7.1.2-surface+
+7.1.2-surface-aa+
 ```
 
 Expected touch service:
@@ -78,3 +80,6 @@ The build that produced these packages was verified booting on a Surface Pro 7:
 - `iptsd` running
 - `IPTS 045E:099F Touchscreen` detected
 - `IPTS 045E:099F Stylus` detected
+- AppArmor notification socket present at `/sys/kernel/security/apparmor/.notify`
+- Snap prompting client enabled and active after enabling
+  `experimental.apparmor-prompting`

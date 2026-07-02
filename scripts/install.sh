@@ -9,10 +9,10 @@ else
   SUDO="sudo"
 fi
 
-IMAGE_DEB="linux-image-7.1.2-surface+_7.1.2-surface-1_amd64.deb"
-HEADERS_DEB="linux-headers-7.1.2-surface+_7.1.2-surface-1_amd64.deb"
-LIBC_DEB="linux-libc-dev_7.1.2-surface-1_amd64.deb"
-RELEASE_URL="https://github.com/geocausa/surface-pro7-kernel-7.1.2-touch/releases/download/v7.1.2-surface-1"
+IMAGE_DEB="linux-image-7.1.2-surface-aa+_7.1.2-surface-aa1_amd64.deb"
+HEADERS_DEB="linux-headers-7.1.2-surface-aa+_7.1.2-surface-aa1_amd64.deb"
+LIBC_DEB="linux-libc-dev_7.1.2-surface-aa1_amd64.deb"
+RELEASE_URL="https://github.com/geocausa/surface-pro7-kernel-7.1.2-touch/releases/download/v7.1.2-surface-aa1"
 
 missing=0
 for file in "$IMAGE_DEB" "$HEADERS_DEB"; do
@@ -58,5 +58,5 @@ $SUDO apt-get install -y iptsd
 $SUDO update-grub
 
 echo
-echo "Installed 7.1.2-surface+ and iptsd."
+echo "Installed 7.1.2-surface-aa+ and iptsd."
 echo "Disable Secure Boot before rebooting into this kernel."
