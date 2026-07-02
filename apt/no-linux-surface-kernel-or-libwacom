@@ -1,0 +1,4 @@
+Package: linux-image-surface linux-headers-surface linux-surface linux-surface-secureboot-mok libwacom-surface libwacom-bin-surface libwacom-common-surface libwacom2-surface libwacom9-surface
+Pin: origin pkg.surfacelinux.com
+Pin-Priority: -1
+
