@@ -28,9 +28,12 @@ The older Ubuntu kernels remain installed as fallback entries in GRUB.
 
 ## Quick Install
 
-Download the latest release assets from this repository, then run:
+Clone this repository and run the installer. The release packages are downloaded
+automatically.
 
 ```bash
+git clone https://github.com/geocausa/surface-pro7-kernel-7.1.2-touch.git
+cd surface-pro7-kernel-7.1.2-touch
 sudo ./scripts/install.sh
 sudo reboot
 ```
@@ -75,4 +78,3 @@ The build that produced these packages was verified booting on a Surface Pro 7:
 - `iptsd` running
 - `IPTS 045E:099F Touchscreen` detected
 - `IPTS 045E:099F Stylus` detected
-

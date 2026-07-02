@@ -12,6 +12,7 @@ fi
 IMAGE_DEB="linux-image-7.1.2-surface+_7.1.2-surface-1_amd64.deb"
 HEADERS_DEB="linux-headers-7.1.2-surface+_7.1.2-surface-1_amd64.deb"
 LIBC_DEB="linux-libc-dev_7.1.2-surface-1_amd64.deb"
+RELEASE_URL="https://github.com/geocausa/surface-pro7-kernel-7.1.2-touch/releases/download/v7.1.2-surface-1"
 
 missing=0
 for file in "$IMAGE_DEB" "$HEADERS_DEB"; do
@@ -22,16 +23,10 @@ for file in "$IMAGE_DEB" "$HEADERS_DEB"; do
 done
 
 if [ "$missing" -ne 0 ]; then
-  if command -v gh >/dev/null 2>&1; then
-    echo "Downloading release packages with GitHub CLI..."
-    gh release download v7.1.2-surface-1 \
-      --pattern '*.deb' \
-      --pattern SHA256SUMS \
-      --clobber
-  else
-    echo "Download the release .deb files into this directory, then run again."
-    exit 1
-  fi
+  echo "Downloading release packages..."
+  for file in "$IMAGE_DEB" "$HEADERS_DEB" "$LIBC_DEB" SHA256SUMS; do
+    curl -fL -O "$RELEASE_URL/$file"
+  done
 fi
 
 if [ -f SHA256SUMS ]; then
