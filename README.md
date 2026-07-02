@@ -9,7 +9,7 @@ AppArmor prompting can run on this custom kernel.
 
 ## What Is Included
 
-- Linux kernel `7.1.2-surface-aa+`
+- Linux kernel `7.1.2-surface-aa3+`
 - Surface touch modules:
   - `ipts`
   - `ithc`
@@ -51,7 +51,7 @@ journalctl -k -b | grep -Ei 'ipts|ithc|surface|mei|hid'
 Expected kernel:
 
 ```text
-7.1.2-surface-aa+
+7.1.2-surface-aa3+
 ```
 
 Expected touch service:
@@ -83,3 +83,5 @@ The build that produced these packages was verified booting on a Surface Pro 7:
 - AppArmor notification socket present at `/sys/kernel/security/apparmor/.notify`
 - Snap prompting client enabled and active after enabling
   `experimental.apparmor-prompting`
+- No kernel taint from the Surface registry module
+- SoundWire zero-link firmware path no longer triggers the kernel UBSAN warning
